@@ -18,19 +18,15 @@ import { UsersModule } from './users/users.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
+      host: 'postgres_db',
       port: 5432,
-      username: 'your_db_username',
-      password: 'your_db_password',
-      database: 'your_database_name',
+      username: 'Rida',
+      password: 'Rida1337',
+      database: 'MyDatabase',
       autoLoadEntities: true,
-      synchronize: true, // Not recommended for production
+      synchronize: true,
     }),
     UsersModule,
-    // Other modules here
   ],
 })
 export class AppModule {}
-
-
-

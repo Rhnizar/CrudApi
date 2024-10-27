@@ -1,0 +1,49 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: Rida
+      POSTGRES_PASSWORD: Rida1337
+      POSTGRES_DB: MyDatabase
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app_network
+
+  nestjs:
+    image: node:14
+    container_name: nestjs_app
+    ports:
+      - '3000:3000'
+    depends_on:
+      - postgres
+    volumes:
+      - ./backend/:/app
+    working_dir: /app
+    command: sh -c "npm install && npm run start:dev"
+    networks:
+      - app_network
+  
+  front-end:
+    container_name: front-end
+    image: nginx:latest
+    ports:
+      - 5000:5000
+    volumes:
+      - ./Frontend/:/usr/share/nginx/html
+      - ./Frontend/nginx:/etc/nginx/conf.d
+    networks:
+      - app_network
+    depends_on:
+      - back-end
+
+volumes:
+  postgres_data:
+
+networks:
+  app_network:
+    driver: bridge

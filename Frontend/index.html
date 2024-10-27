@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User CRUD API Test</title>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>User CRUD API Test</h1>
+
+    <h2>Create User</h2>
+    <input type="text" id="createUserName" placeholder="User Name">
+    <input type="email" id="createUserEmail" placeholder="User Email">
+    <input type="number" id="createUserAge" placeholder="User Age">
+    <button onclick="createUser()">Create User</button>
+
+    <h2>Users List</h2>
+    <ul id="usersList"></ul>
+    <button onclick="fetchUsers()">Refresh Users List</button> <!-- Added button to refresh users list -->
+
+    <h2>Update User</h2>
+    <input type="text" id="updateUserId" placeholder="User ID">
+    <input type="text" id="updateUserName" placeholder="New User Name">
+    <input type="email" id="updateUserEmail" placeholder="New User Email">
+    <input type="number" id="updateUserAge" placeholder="New User Age">
+    <button onclick="updateUser()">Update User</button>
+
+    <h2>Delete User</h2>
+    <input type="text" id="deleteUserId" placeholder="User ID">
+    <button onclick="deleteUser()">Delete User</button>
+
+    <script src="script.js"></script>
+</body>
+</html>

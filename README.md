@@ -13,7 +13,11 @@
     git clone git@github.com:Rhnizar/CrudApi.git
     cd CrudApi
 
-2. run command 
+2. run command
+	```bash
+		bash init.sh
+
+3. run command 
     ```bash
     docker-compose up --build
 

@@ -2,8 +2,8 @@ const apiUrl = 'http://localhost:3000/users';
 
 // Create User
 async function createUser() {
-    const name = document.getElementById('createUserName').value;
-    const email = document.getElementById('createUserEmail').value;
+    const name = document.getElementById("createUserName").value;
+    const email = document.getElementById("createUserEmail").value;
     const age = document.getElementById('createUserAge').value;
     
     const response = await fetch(apiUrl, {
@@ -16,14 +16,13 @@ async function createUser() {
     
     if (response.ok) {
         alert('User created successfully!');
-        fetchUsers(); // Refresh the users list
+        fetchUsers();
     } else {
         alert('Failed to create user.');
     }
     document.getElementById('createUserName').value = "";
     document.getElementById('createUserEmail').value = "";
     document.getElementById('createUserAge').value = "";
-    // document.getElementById('updateUserAge').value = "";
 }
 
 // Read Users
@@ -31,7 +30,7 @@ async function fetchUsers() {
     const response = await fetch(apiUrl);
     const users = await response.json();
     const usersList = document.getElementById('usersList');
-    usersList.innerHTML = ''; // Clear the list
+    usersList.innerHTML = '';
     users.forEach(user => {
         const li = document.createElement('li');
         li.textContent = `ID: ${user.id}, Name: ${user.name}, Email: ${user.email}, Age: ${user.age}`;
@@ -56,7 +55,7 @@ async function updateUser() {
     
     if (response.ok) {
         alert('User updated successfully!');
-        fetchUsers(); // Refresh the users list
+        fetchUsers();
     } else {
         alert('Failed to update user.');
     }
@@ -77,11 +76,10 @@ async function deleteUser() {
     
     if (response.ok) {
         alert('User deleted successfully!');
-        fetchUsers(); // Refresh the users list
+        fetchUsers();
     } else {
         alert('Failed to delete user.');
     }
 }
 
-// Fetch users on page load
 document.addEventListener('DOMContentLoaded', fetchUsers);

@@ -1,6 +1,6 @@
 # CRUD API with NestJS and PostgreSQL
 
-###### Usage
+## Usage
 
 ## Prerequisites
 

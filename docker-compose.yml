@@ -22,7 +22,7 @@ services:
     depends_on:
       - postgres
     volumes:
-      - ./backend/:/app
+      - ./Backend/:/app
     working_dir: /app
     command: sh -c "npm install && npm run start:dev"
     networks:
@@ -39,7 +39,7 @@ services:
     networks:
       - app_network
     depends_on:
-      - back-end
+      - nestjs
 
 volumes:
   postgres_data:
